@@ -61,36 +61,49 @@ const Navbar = () => {
               className="flex items-center gap-x-1 px-6 py-5 text-[#4B4B4B]"
               href="#"
             >
-              <span className="text-nowrap pe-1">探索</span>
+              <span className="whitespace-nowrap pe-1">探索</span>
               <MdKeyboardArrowDown size={20} color="#909090" />
             </a>
-            <div className="absolute -left-12 mt-6 hidden rounded-xl bg-[#F9F9F9] p-3 shadow-lg group-hover:block">
-              <p className="mb-2 py-3 ps-6">探索全部</p>
-              <ul>
-                {menu.map((item, index) => (
-                  <li key={item.title}>
-                    <a
-                      href="#"
-                      className="flex min-w-52 items-center justify-between rounded-s-xl py-3 pe-3 ps-6 hover:bg-[#0068FF] hover:font-semibold hover:text-white"
-                    >
-                      {item.title}
-                      <MdKeyboardArrowRight
-                        className="text-[#909090]"
-                        size={24}
-                      />
-                    </a>
-                    <ul className="absolute left-full top-0 mt-0 hidden w-48 bg-white shadow-lg group-hover:block">
-                      {item.title &&
-                        menu_program.map((item, index) => (
-                          <li
-                            key={item.title}
-                            className="px-4 py-2 hover:bg-gray-200"
-                          ></li>
-                        ))}
-                    </ul>
-                  </li>
-                ))}
-              </ul>
+            <div className="absolute -left-12 hidden pt-6 group-hover:block">
+              <div className="rounded-s-xl bg-[#F9F9F9] px-3 pt-3">
+                <p className="mb-2 py-3 ps-6">探索全部</p>
+                <ul>
+                  {menu.map((item, index) => (
+                    <li className="rounded-xl" key={item.title}>
+                      <a
+                        href="#"
+                        className="group/subItem flex min-w-52 items-center justify-between rounded-xl py-3 pe-3 ps-6 hover:bg-[#0068FF] hover:font-semibold hover:text-white"
+                      >
+                        {item.title}
+                        <MdKeyboardArrowRight
+                          className="text-[#909090] group-hover/subItem:text-white"
+                          size={24}
+                        />
+                      </a>
+                      <div className="absolute left-full top-0 mt-6 border-x border-[#ECECEC] bg-white px-3 pt-3">
+                        <p className="mb-2 py-3 ps-6">探索全部</p>
+                        <ul>
+                          {item.title &&
+                            menu_program.map((subItem, subIndex) => (
+                              <li key={subItem.title}>
+                                <a
+                                  href="#"
+                                  className="group/subSubItem flex min-w-52 items-center justify-between rounded-xl py-3 pe-3 ps-6 hover:bg-[#0068FF] hover:font-semibold hover:text-white"
+                                >
+                                  {subItem.title}
+                                  <MdKeyboardArrowRight
+                                    className="text-[#909090] group-hover/subSubItem:text-white"
+                                    size={24}
+                                  />
+                                </a>
+                              </li>
+                            ))}
+                        </ul>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
           <div className="hidden items-center justify-between gap-x-4 rounded-2xl px-2 outline outline-1 outline-[#ECECEC] lg:flex lg:max-w-[425px] lg:flex-1">
@@ -132,7 +145,7 @@ const Navbar = () => {
               </a>
               <a
                 href="#"
-                className="hidden text-nowrap rounded-xl bg-[#0068FF] px-4 py-3 text-white md:block"
+                className="hidden whitespace-nowrap rounded-xl bg-[#0068FF] px-4 py-3 text-white md:block"
               >
                 登入 / 註冊
               </a>
@@ -174,7 +187,7 @@ const Navbar = () => {
           <hr className="border-[#ECECEC]" />
           <a
             href="#"
-            className="mx-6 my-3 block text-nowrap rounded-xl bg-[#0068FF] py-4 text-center font-semibold text-white"
+            className="mx-6 my-3 block whitespace-nowrap rounded-xl bg-[#0068FF] py-4 text-center font-semibold text-white"
           >
             登入/註冊
           </a>
@@ -276,7 +289,7 @@ const Navbar = () => {
         <div className="fixed bottom-0 w-full border-t border-[#ECECEC] bg-white px-6 py-3">
           <a
             href="#"
-            className="flex items-center gap-x-2 text-nowrap px-6 py-3"
+            className="flex items-center gap-x-2 whitespace-nowrap px-6 py-3"
           >
             <TbLogout size={24} color="#909090" />
             登出
