@@ -56,13 +56,43 @@ const Navbar = () => {
               />
             </h1>
           </a>
-          <a
-            className="hidden items-center px-6 py-5 text-[#4B4B4B] lg:flex"
-            href="#"
-          >
-            <span className="text-nowrap pe-1">探索</span>
-            <MdKeyboardArrowDown size={20} color="#909090" />
-          </a>
+          <div className="group relative hidden lg:block">
+            <a
+              className="flex items-center gap-x-1 px-6 py-5 text-[#4B4B4B]"
+              href="#"
+            >
+              <span className="text-nowrap pe-1">探索</span>
+              <MdKeyboardArrowDown size={20} color="#909090" />
+            </a>
+            <div className="absolute -left-12 mt-6 hidden rounded-xl bg-[#F9F9F9] p-3 shadow-lg group-hover:block">
+              <p className="mb-2 py-3 ps-6">探索全部</p>
+              <ul>
+                {menu.map((item, index) => (
+                  <li key={item.title}>
+                    <a
+                      href="#"
+                      className="flex min-w-52 items-center justify-between rounded-s-xl py-3 pe-3 ps-6 hover:bg-[#0068FF] hover:font-semibold hover:text-white"
+                    >
+                      {item.title}
+                      <MdKeyboardArrowRight
+                        className="text-[#909090]"
+                        size={24}
+                      />
+                    </a>
+                    <ul className="absolute left-full top-0 mt-0 hidden w-48 bg-white shadow-lg group-hover:block">
+                      {item.title &&
+                        menu_program.map((item, index) => (
+                          <li
+                            key={item.title}
+                            className="px-4 py-2 hover:bg-gray-200"
+                          ></li>
+                        ))}
+                    </ul>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
           <div className="hidden items-center justify-between gap-x-4 rounded-2xl px-2 outline outline-1 outline-[#ECECEC] lg:flex lg:max-w-[425px] lg:flex-1">
             <label
               className="flex w-full items-center gap-x-2"
