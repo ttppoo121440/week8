@@ -25,30 +25,44 @@ import { TbLogout } from "react-icons/tb";
 import { AiOutlineNotification } from "react-icons/ai";
 
 const menu = [
-  { title: "音樂", link: "#" },
-  { title: "攝影", link: "#" },
-  { title: "程式", link: "#" },
-  { title: "程式", link: "#" },
-  { title: "藝術", link: "#" },
-  { title: "人文", link: "#" },
-  { title: "行銷", link: "#" },
-  { title: "投資理財", link: "#" },
-  { title: "心靈成長", link: "#" },
-  { title: "職場技能", link: "#" },
-  { title: "生活品味", link: "#" },
+  { title: "音樂" },
+  { title: "攝影" },
+  {
+    title: "程式",
+    submenu: [
+      { title: "程式入門" },
+      { title: "網頁前端" },
+      { title: "網頁後端" },
+      { title: "網站架設" },
+      { title: "資訊安全" },
+      { title: "程式語言" },
+      { title: "遊戲開發" },
+      { title: "資料科學" },
+      { title: "人工智慧" },
+      { title: "量化分析" },
+    ],
+  },
+  { title: "程式" },
+  { title: "藝術" },
+  { title: "人文" },
+  { title: "行銷" },
+  { title: "投資理財" },
+  { title: "心靈成長" },
+  { title: "職場技能" },
+  { title: "生活品味" },
 ];
 
 const menu_program = [
-  { title: "程式入門", link: "#" },
-  { title: "網頁前端", link: "#" },
-  { title: "網頁後端", link: "#" },
-  { title: "網站架設", link: "#" },
-  { title: "資訊安全", link: "#" },
-  { title: "程式語言", link: "#" },
-  { title: "遊戲開發", link: "#" },
-  { title: "資料科學", link: "#" },
-  { title: "人工智慧", link: "#" },
-  { title: "量化分析", link: "#" },
+  { title: "程式入門" },
+  { title: "網頁前端" },
+  { title: "網頁後端" },
+  { title: "網站架設" },
+  { title: "資訊安全" },
+  { title: "程式語言" },
+  { title: "遊戲開發" },
+  { title: "資料科學" },
+  { title: "人工智慧" },
+  { title: "量化分析" },
 ];
 
 const Navbar = () => {
@@ -68,14 +82,47 @@ const Navbar = () => {
             </h1>
           </a>
           <DropdownMenu>
-            <DropdownMenuTrigger>Open</DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuLabel>My Account</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Profile</DropdownMenuItem>
-              <DropdownMenuItem>Billing</DropdownMenuItem>
-              <DropdownMenuItem>Team</DropdownMenuItem>
-              <DropdownMenuItem>Subscription</DropdownMenuItem>
+            <DropdownMenuTrigger className="hidden items-center gap-x-1 px-6 py-5 text-[#4B4B4B] outline-none xl:flex">
+              <span className="whitespace-nowrap pe-1">探索</span>
+              <MdKeyboardArrowDown size={20} color="#909090" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="mt-6 hidden rounded-xl border-none bg-[#F9F9F9] px-3 pb-1 pt-3 shadow-none xl:block">
+              <DropdownMenuLabel className="py-3 ps-6 font-normal">
+                探索全部
+              </DropdownMenuLabel>
+              {/* {menu.map((item, index) => (
+                <DropdownMenuSub key={`${item.title}${index}`}>
+                  <DropdownMenuSubTrigger className="group flex min-w-52 items-center justify-between rounded-xl py-3 pe-3 ps-6 hover:!bg-[#0068FF] hover:!font-semibold hover:!text-white">
+                    {item.title}
+                    <MdKeyboardArrowRight
+                      className="text-[#909090] group-hover:text-white"
+                      size={24}
+                    />
+                  </DropdownMenuSubTrigger>
+                  <DropdownMenuSubContent className="rounded-xl border-none bg-[#F9F9F9] px-3 pb-1 pt-3 shadow-none">
+                    {item.submenu.map((subItem, subIndex) => (
+                      <DropdownMenuItem
+                        key={`${subItem.title}${subIndex}`}
+                        className="rounded-xl py-3 pe-3 ps-6 hover:!bg-[#0068FF] hover:!font-semibold hover:!text-white"
+                      >
+                        {subItem.title}
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuSubContent>
+                </DropdownMenuSub>
+              ))} */}
+              {/* {menu.map((item, index) => (
+                <DropdownMenuItem
+                  className="group flex min-w-52 items-center justify-between rounded-xl py-3 pe-3 ps-6 hover:!bg-[#0068FF] hover:!font-semibold hover:!text-white"
+                  key={`${item.title}${index}`}
+                >
+                  {item.title}
+                  <MdKeyboardArrowRight
+                    className="text-[#909090] group-hover:text-white"
+                    size={24}
+                  />
+                </DropdownMenuItem>
+              ))} */}
             </DropdownMenuContent>
           </DropdownMenu>
 
