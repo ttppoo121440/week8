@@ -4,10 +4,16 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
+  DropdownMenuPortal,
   DropdownMenuSeparator,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
 import {
   MdKeyboardArrowDown,
   MdKeyboardArrowLeft,
@@ -22,26 +28,12 @@ import { BsList, BsBookmarkFill } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
 import { RiFileList2Line, RiPencilFill } from "react-icons/ri";
 import { TbLogout } from "react-icons/tb";
-import { AiOutlineNotification } from "react-icons/ai";
+import { AiOutlineNotification, AiFillCheckCircle } from "react-icons/ai";
 
 const menu = [
   { title: "音樂" },
   { title: "攝影" },
-  {
-    title: "程式",
-    submenu: [
-      { title: "程式入門" },
-      { title: "網頁前端" },
-      { title: "網頁後端" },
-      { title: "網站架設" },
-      { title: "資訊安全" },
-      { title: "程式語言" },
-      { title: "遊戲開發" },
-      { title: "資料科學" },
-      { title: "人工智慧" },
-      { title: "量化分析" },
-    ],
-  },
+  { title: "程式" },
   { title: "程式" },
   { title: "藝術" },
   { title: "人文" },
@@ -53,6 +45,19 @@ const menu = [
 ];
 
 const menu_program = [
+  { title: "程式入門" },
+  { title: "網頁前端" },
+  { title: "網頁後端" },
+  { title: "網站架設" },
+  { title: "資訊安全" },
+  { title: "程式語言" },
+  { title: "遊戲開發" },
+  { title: "資料科學" },
+  { title: "人工智慧" },
+  { title: "量化分析" },
+];
+
+const menu_notification = [
   { title: "程式入門" },
   { title: "網頁前端" },
   { title: "網頁後端" },
@@ -86,43 +91,40 @@ const Navbar = () => {
               <span className="whitespace-nowrap pe-1">探索</span>
               <MdKeyboardArrowDown size={20} color="#909090" />
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="mt-6 hidden rounded-xl border-none bg-[#F9F9F9] px-3 pb-1 pt-3 shadow-none xl:block">
-              <DropdownMenuLabel className="py-3 ps-6 font-normal">
+            <DropdownMenuContent className="mt-6 hidden rounded-s-xl border-none bg-[#F9F9F9] px-3 pb-1 pt-3 shadow-none xl:block">
+              <DropdownMenuLabel className="py-3 ps-6 font-normal text-[#0068FF]">
                 探索全部
               </DropdownMenuLabel>
-              {/* {menu.map((item, index) => (
+              {menu.map((item, index) => (
                 <DropdownMenuSub key={`${item.title}${index}`}>
-                  <DropdownMenuSubTrigger className="group flex min-w-52 items-center justify-between rounded-xl py-3 pe-3 ps-6 hover:!bg-[#0068FF] hover:!font-semibold hover:!text-white">
+                  <DropdownMenuSubTrigger className="group flex min-w-52 items-center justify-between rounded-xl py-3 pe-3 ps-6 text-base hover:!bg-[#0068FF] hover:!font-semibold hover:text-white">
                     {item.title}
+                    {(index + 1) * -48 - 12}
                     <MdKeyboardArrowRight
-                      className="text-[#909090] group-hover:text-white"
                       size={24}
+                      className="size-6 text-[#909090] group-hover:text-white"
                     />
                   </DropdownMenuSubTrigger>
-                  <DropdownMenuSubContent className="rounded-xl border-none bg-[#F9F9F9] px-3 pb-1 pt-3 shadow-none">
-                    {item.submenu.map((subItem, subIndex) => (
-                      <DropdownMenuItem
-                        key={`${subItem.title}${subIndex}`}
-                        className="rounded-xl py-3 pe-3 ps-6 hover:!bg-[#0068FF] hover:!font-semibold hover:!text-white"
-                      >
-                        {subItem.title}
+                  <DropdownMenuPortal>
+                    <DropdownMenuSubContent
+                      className="flex rounded-none border-y-0 shadow-none"
+                      // alignOffset={(index + 1) * -48 - 12}
+                      sideOffset={12}
+                    >
+                      <DropdownMenuItem>
+                        <span>Email</span>
                       </DropdownMenuItem>
-                    ))}
-                  </DropdownMenuSubContent>
+                      <DropdownMenuItem>
+                        <span>Message</span>
+                      </DropdownMenuItem>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuItem>
+                        <span>More...</span>
+                      </DropdownMenuItem>
+                    </DropdownMenuSubContent>
+                  </DropdownMenuPortal>
                 </DropdownMenuSub>
-              ))} */}
-              {/* {menu.map((item, index) => (
-                <DropdownMenuItem
-                  className="group flex min-w-52 items-center justify-between rounded-xl py-3 pe-3 ps-6 hover:!bg-[#0068FF] hover:!font-semibold hover:!text-white"
-                  key={`${item.title}${index}`}
-                >
-                  {item.title}
-                  <MdKeyboardArrowRight
-                    className="text-[#909090] group-hover:text-white"
-                    size={24}
-                  />
-                </DropdownMenuItem>
-              ))} */}
+              ))}
             </DropdownMenuContent>
           </DropdownMenu>
 
@@ -340,7 +342,32 @@ const Navbar = () => {
             </button>
           </div>
           <div className="ms-auto flex items-center md:gap-x-4">
-            <div className="group relative">
+            <DropdownMenu>
+              <DropdownMenuTrigger className="relative block rounded-xl px-3 py-2 outline-none before:absolute before:right-2 before:top-1 before:size-2 before:rounded-full before:bg-[#0068FF] before:content-[''] hover:bg-[#F9F9F9]">
+                <LiaBellSolid size={24} />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="mt-8 hidden h-[297px] w-80 overflow-hidden rounded-s-xl border-none bg-[#FFFFFF] p-0 shadow-none xl:block">
+                <DropdownMenuLabel className="flex items-center justify-end gap-x-2 border-b border-[#ECECEC] py-3 pe-4 text-[#0068FF]">
+                  <AiFillCheckCircle size={18} />
+                  全部標記為已讀
+                </DropdownMenuLabel>
+                {menu.map((item, index) => (
+                  <DropdownMenuItem
+                    className="flex gap-x-4 border-b border-[#ECECEC] px-4 py-3"
+                    key={`${item.title}${index}`}
+                  >
+                    <div className="flex size-10 flex-shrink-0 items-center justify-center rounded-full bg-[#D4F9FE]">
+                      <AiOutlineNotification color={"#2AAFFC"} size={24} />
+                    </div>
+                    <div>
+                      <p>系統通知：6 月 30 日 02:00 網站系統排程更新</p>
+                      <p>4 天前</p>
+                    </div>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+            {/* <div className="group relative">
               <a
                 className="relative block rounded-xl px-3 py-2 before:absolute before:right-2 before:top-1 before:size-2 before:rounded-full before:bg-[#0068FF] before:content-[''] hover:bg-[#F9F9F9]"
                 href="#"
@@ -360,7 +387,7 @@ const Navbar = () => {
                   <li></li>
                 </ul>
               </div>
-            </div>
+            </div> */}
             <a className="relative block px-3 py-2" href="#">
               <MdOutlineShoppingCart size={24} />
               <span className="absolute right-1.5 top-0.5 flex size-5 items-center justify-center rounded-full border-2 border-white bg-[#0068FF] text-xs text-white">
