@@ -52,6 +52,7 @@ const Navbar = () => {
                 alt="logo"
                 width={125}
                 height={20}
+                priority={true}
                 className="min-h-[20px] min-w-[125px] md:h-[32px] md:w-[200px]"
               />
             </h1>
@@ -69,7 +70,7 @@ const Navbar = () => {
                 <p className="mb-2 py-3 ps-6">探索全部</p>
                 <ul>
                   {menu.map((item, index) => (
-                    <li className="rounded-xl" key={item.title}>
+                    <li className="rounded-xl" key={`${item.title}+${index}`}>
                       <a
                         href="#"
                         className="group/subItem flex min-w-52 items-center justify-between rounded-xl py-3 pe-3 ps-6 hover:bg-[#0068FF] hover:font-semibold hover:text-white"
@@ -84,8 +85,8 @@ const Navbar = () => {
                         <p className="mb-2 py-3 ps-6">探索全部</p>
                         <ul>
                           {item.title &&
-                            menu_program.map((subItem, subIndex) => (
-                              <li key={subItem.title}>
+                            menu_program.map((subItem) => (
+                              <li key={`${subItem.title}+${index}`}>
                                 <a
                                   href="#"
                                   className="group/subSubItem flex min-w-52 items-center justify-between rounded-xl py-3 pe-3 ps-6 hover:bg-[#0068FF] hover:font-semibold hover:text-white"
@@ -168,7 +169,7 @@ const Navbar = () => {
           <p className="mb-2 py-3 ps-6">探索全部</p>
           <ul>
             {menu.map((item, index) => (
-              <li key={item.title}>
+              <li key={`${item.title}+${index}`}>
                 <a
                   href="#"
                   className="group flex items-center justify-between rounded-xl py-3 pe-3 ps-6 hover:bg-[#0068FF] hover:font-semibold hover:text-white"
@@ -210,7 +211,7 @@ const Navbar = () => {
           </a>
           <ul>
             {menu_program.map((item, index) => (
-              <li key={item.title}>
+              <li key={`${item.title}+${index}`}>
                 <a
                   href="#"
                   className="group flex items-center justify-between rounded-xl py-3 pe-3 ps-6 hover:bg-[#0068FF] hover:font-semibold hover:text-white"
