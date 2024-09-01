@@ -2,14 +2,14 @@ import Image from "next/image";
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuPortal,
-  DropdownMenuSeparator,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
+  DropdownMenuSub,
+  DropdownMenuSubTrigger,
+  DropdownMenuPortal,
+  DropdownMenuSubContent,
 } from "@/components/ui/dropdown-menu";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -31,43 +31,81 @@ import { TbLogout } from "react-icons/tb";
 import { AiOutlineNotification, AiFillCheckCircle } from "react-icons/ai";
 
 const menu = [
-  { title: "音樂" },
-  { title: "攝影" },
-  { title: "程式" },
-  { title: "程式" },
-  { title: "藝術" },
-  { title: "人文" },
-  { title: "行銷" },
-  { title: "投資理財" },
-  { title: "心靈成長" },
-  { title: "職場技能" },
-  { title: "生活品味" },
+  { title: "音樂", spacing: 68 },
+  { title: "攝影", spacing: 116 },
+  { title: "程式", spacing: 164 },
+  { title: "程式", spacing: 212 },
+  { title: "藝術", spacing: 260 },
+  { title: "人文", spacing: 308 },
+  { title: "行銷", spacing: 356 },
+  { title: "投資理財", spacing: 404 },
+  { title: "心靈成長", spacing: 452 },
+  { title: "職場技能", spacing: 500 },
+  { title: "生活品味", spacing: 548 },
 ];
 
 const menu_program = [
-  { title: "程式入門" },
-  { title: "網頁前端" },
-  { title: "網頁後端" },
-  { title: "網站架設" },
-  { title: "資訊安全" },
-  { title: "程式語言" },
-  { title: "遊戲開發" },
-  { title: "資料科學" },
-  { title: "人工智慧" },
-  { title: "量化分析" },
+  { title: "程式入門", spacing: 68 },
+  { title: "網頁前端", spacing: 116 },
+  { title: "網頁後端", spacing: 164 },
+  { title: "網站架設", spacing: 212 },
+  { title: "資訊安全", spacing: 260 },
+  { title: "程式語言", spacing: 308 },
+  { title: "遊戲開發", spacing: 356 },
+  { title: "資料科學", spacing: 404 },
+  { title: "人工智慧", spacing: 452 },
+  { title: "量化分析", spacing: 500 },
 ];
 
-const menu_notification = [
-  { title: "程式入門" },
-  { title: "網頁前端" },
-  { title: "網頁後端" },
-  { title: "網站架設" },
-  { title: "資訊安全" },
-  { title: "程式語言" },
-  { title: "遊戲開發" },
-  { title: "資料科學" },
-  { title: "人工智慧" },
-  { title: "量化分析" },
+const menu_course = [
+  {
+    cover:
+      "https://github.com/hexschool/2022-web-layout-training/blob/main/week8-learning/course-5.png?raw=true",
+    title: "小白也會！從零開始學習 Python 程式設計",
+    avatar:
+      "https://github.com/hexschool/2022-web-layout-training/blob/main/week8-learning/avatar-2.png?raw=true",
+    teacher: "Kelly Hsu",
+    price: {
+      sale: 2480,
+      original: 3200,
+      currency: "NT$",
+    },
+    students: 420,
+    rating: 4.0,
+    reviews: "333",
+  },
+  {
+    cover:
+      "https://github.com/hexschool/2022-web-layout-training/blob/main/week8-learning/course-5.png?raw=true",
+    title: "小白也會！從零開始學習 Python 程式設計",
+    avatar:
+      "https://github.com/hexschool/2022-web-layout-training/blob/main/week8-learning/avatar-2.png?raw=true",
+    teacher: "Kelly Hsu",
+    price: {
+      sale: 2480,
+      original: 3200,
+      currency: "NT$",
+    },
+    students: 420,
+    rating: 4.0,
+    reviews: "333",
+  },
+  {
+    cover:
+      "https://github.com/hexschool/2022-web-layout-training/blob/main/week8-learning/course-5.png?raw=true",
+    title: "小白也會！從零開始學習 Python 程式設計",
+    avatar:
+      "https://github.com/hexschool/2022-web-layout-training/blob/main/week8-learning/avatar-2.png?raw=true",
+    teacher: "Kelly Hsu",
+    price: {
+      sale: 2480,
+      original: 3200,
+      currency: "NT$",
+    },
+    students: 420,
+    rating: 4.0,
+    reviews: "333",
+  },
 ];
 
 const Navbar = () => {
@@ -91,42 +129,161 @@ const Navbar = () => {
               <span className="whitespace-nowrap pe-1">探索</span>
               <MdKeyboardArrowDown size={20} color="#909090" />
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="mt-6 hidden rounded-s-xl border-none bg-[#F9F9F9] px-3 pb-1 pt-3 shadow-none xl:block">
-              <DropdownMenuLabel className="py-3 ps-6 font-normal text-[#0068FF]">
-                探索全部
-              </DropdownMenuLabel>
+            <DropdownMenuContent>
+              <DropdownMenuLabel>探索全部</DropdownMenuLabel>
               {menu.map((item, index) => (
-                <DropdownMenuSub key={`${item.title}${index}`}>
-                  <DropdownMenuSubTrigger className="group flex min-w-52 items-center justify-between rounded-xl py-3 pe-3 ps-6 text-base hover:!bg-[#0068FF] hover:!font-semibold hover:text-white">
-                    {item.title}
-                    {(index + 1) * -48 - 12}
-                    <MdKeyboardArrowRight
-                      size={24}
-                      className="size-6 text-[#909090] group-hover:text-white"
-                    />
-                  </DropdownMenuSubTrigger>
-                  <DropdownMenuPortal>
-                    <DropdownMenuSubContent
-                      className="flex rounded-none border-y-0 shadow-none"
-                      // alignOffset={(index + 1) * -48 - 12}
-                      sideOffset={12}
-                    >
-                      <DropdownMenuItem>
-                        <span>Email</span>
-                      </DropdownMenuItem>
-                      <DropdownMenuItem>
-                        <span>Message</span>
-                      </DropdownMenuItem>
-                      <DropdownMenuSeparator />
-                      <DropdownMenuItem>
-                        <span>More...</span>
-                      </DropdownMenuItem>
-                    </DropdownMenuSubContent>
-                  </DropdownMenuPortal>
-                </DropdownMenuSub>
+                <DropdownMenuGroup key={`${item.title}${index}`}>
+                  <DropdownMenuSub>
+                    <DropdownMenuSubTrigger>
+                      {item.title}
+                      <MdKeyboardArrowRight
+                        className="text-[#909090] group-hover:text-white"
+                        size={24}
+                      />
+                    </DropdownMenuSubTrigger>
+                    <DropdownMenuPortal>
+                      <DropdownMenuSubContent
+                        className={`-top-[${item.spacing}px]`}
+                        sideOffset={12}
+                      >
+                        <DropdownMenuLabel>所有程式</DropdownMenuLabel>
+                        {menu_program.map((item) => (
+                          <DropdownMenuGroup key={`${item.title}${index}`}>
+                            <DropdownMenuSub>
+                              <DropdownMenuSubTrigger>
+                                {item.title}
+                                <MdKeyboardArrowRight
+                                  className="text-[#909090] group-focus:text-white"
+                                  size={24}
+                                />
+                              </DropdownMenuSubTrigger>
+                              <DropdownMenuPortal>
+                                <DropdownMenuSubContent
+                                  className={`min-w-[399px] rounded-e-xl px-6 pt-3 -top-[${item.spacing}px]`}
+                                  sideOffset={12}
+                                >
+                                  <DropdownMenuLabel className="flex items-center gap-x-2 whitespace-nowrap border-b border-[#ECECEC] ps-0">
+                                    <Image
+                                      src="https://github.com/hexschool/2022-web-layout-training/blob/main/week8-learning/icons/ic_fire.png?raw=true"
+                                      alt="fire"
+                                      width={24}
+                                      height={24}
+                                    ></Image>
+                                    熱門網頁前端課程
+                                  </DropdownMenuLabel>
+                                  {menu_course.map(
+                                    (courseItem, courseIndex) => (
+                                      <DropdownMenuGroup
+                                        key={`${courseItem.title}${courseIndex}`}
+                                      >
+                                        <DropdownMenuSub>
+                                          <DropdownMenuItem className="gap-x-2">
+                                            <Image
+                                              src={`${courseItem.cover}`}
+                                              alt="cover"
+                                              width={100}
+                                              height={100}
+                                              className="relative flex size-[100px] self-start rounded-xl object-cover"
+                                            ></Image>
+                                            <div>
+                                              <a
+                                                className="mb-4 block text-base font-semibold"
+                                                href="#"
+                                              >
+                                                {courseItem.title}
+                                              </a>
+                                              <div className="flex items-center justify-between whitespace-nowrap border-b border-[#ECECEC] pb-2">
+                                                <div className="flex items-center gap-x-2">
+                                                  <Image
+                                                    src="https://github.com/hexschool/2022-web-layout-training/blob/main/week8-learning/avatar-2.png?raw=true"
+                                                    alt="teacherAvatar"
+                                                    width={32}
+                                                    height={32}
+                                                  ></Image>
+                                                  <p className="text-[#4B4B4B]">
+                                                    Kelly Hsu
+                                                  </p>
+                                                </div>
+                                                <div className="flex flex-col items-end">
+                                                  <p className="font-semibold text-[#0068FF]">
+                                                    NT$ 2,480
+                                                  </p>
+                                                  <del className="text-xs text-[#808080]">
+                                                    NT$ 3,200
+                                                  </del>
+                                                </div>
+                                              </div>
+                                              <div className="flex justify-between py-2">
+                                                <p className="text-[#4B4B4B]">
+                                                  已有 420 位同學加入
+                                                </p>
+                                                <div className="flex items-center gap-x-1">
+                                                  <MdOutlineStar
+                                                    color="#F6BD2B"
+                                                    size={12}
+                                                  />
+                                                  <p>4.0</p>
+                                                  <p className="text-[#808080]">
+                                                    (333)
+                                                  </p>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </DropdownMenuItem>
+                                        </DropdownMenuSub>
+                                      </DropdownMenuGroup>
+                                    ),
+                                  )}
+                                </DropdownMenuSubContent>
+                              </DropdownMenuPortal>
+                            </DropdownMenuSub>
+                          </DropdownMenuGroup>
+                        ))}
+                      </DropdownMenuSubContent>
+                    </DropdownMenuPortal>
+                  </DropdownMenuSub>
+                </DropdownMenuGroup>
               ))}
             </DropdownMenuContent>
           </DropdownMenu>
+          {/* <DropdownMenu>
+            <DropdownMenuTrigger className="hidden items-center gap-x-1 px-6 py-5 text-[#4B4B4B] outline-none xl:flex">
+              <span className="whitespace-nowrap pe-1">探索</span>
+              <MdKeyboardArrowDown size={20} color="#909090" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="mt-6 hidden rounded-s-xl border-none bg-[#F9F9F9] px-3 pb-1 pt-3 shadow-none xl:block">
+              <DropdownMenuLabel className="py-3 ps-6 text-base font-normal">
+                探索全部
+              </DropdownMenuLabel>
+              {menu.map((item, index) => (
+                <DropdownMenuGroup key={`${item.title}${index}`}>
+                  <DropdownMenuSub>
+                    <DropdownMenuSubTrigger className="group flex min-w-52 items-center justify-between rounded-xl py-3 pe-3 ps-6 text-base hover:!bg-[#0068FF] hover:!font-semibold hover:!text-white">
+                      {item.title}
+                      {(index + 1) * -48 - 12}
+                      <MdKeyboardArrowRight
+                        className="text-[#909090] group-hover:text-white"
+                        size={24}
+                      />
+                    </DropdownMenuSubTrigger>
+                    <DropdownMenuPortal>
+                      <DropdownMenuSubContent sideOffset={12}>
+                        <DropdownMenuItem>
+                          <span>Email</span>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem>
+                          <span>Message</span>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem>
+                          <span>More...</span>
+                        </DropdownMenuItem>
+                      </DropdownMenuSubContent>
+                    </DropdownMenuPortal>
+                  </DropdownMenuSub>
+                </DropdownMenuGroup>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu> */}
 
           {/* <div className="group relative hidden xl:block">
             <a

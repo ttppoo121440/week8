@@ -8,6 +8,19 @@ const config = {
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
   ],
+  safelist: [
+    "-top-[68px]",
+    "-top-[116px]",
+    "-top-[164px]",
+    "-top-[212px]",
+    "-top-[260px]",
+    "-top-[308px]",
+    "-top-[356px]",
+    "-top-[404px]",
+    "-top-[452px]",
+    "-top-[500px]",
+    "-top-[548px]",
+  ],
   prefix: "",
   theme: {
     container: {
