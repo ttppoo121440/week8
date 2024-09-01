@@ -23,7 +23,7 @@ const Footer = () => {
       <div className="container px-6 py-12 text-white md:px-2 md:py-[100px]">
         <div className="md:mb-4 md:flex">
           <Image
-            className="mb-10 text-white md:mb-0"
+            className="mb-10 h-auto w-auto text-white md:mb-0"
             src="https://github.com/hexschool/2022-web-layout-training/blob/main/week8-learning/logo-white.png?raw=true"
             alt="logo"
             width={200}
