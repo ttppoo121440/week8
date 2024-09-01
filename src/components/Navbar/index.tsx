@@ -299,11 +299,7 @@ const Navbar = () => {
                 <p className="mb-2 py-3 ps-6">探索全部</p>
                 <ul>
                   {menu.map((item, index) => (
-<<<<<<< HEAD
                     <li className="rounded-xl" key={`${item.title}+${index}`}>
-=======
-                    <li key={`${item.title}${index}`}>
->>>>>>> fe4a968f2f06d5d064180156e96a13f4db96b349
                       <a
                         href="#"
                         className="group/subItem flex min-w-52 items-center justify-between rounded-xl py-3 pe-3 ps-6 hover:bg-[#0068FF] hover:font-semibold hover:text-white"
@@ -314,7 +310,6 @@ const Navbar = () => {
                           size={24}
                         />
                       </a>
-<<<<<<< HEAD
                       <div className="absolute left-full top-0 mt-6 border-x border-[#ECECEC] bg-white px-3 pt-3">
                         <p className="mb-2 py-3 ps-6">探索全部</p>
                         <ul>
@@ -335,8 +330,6 @@ const Navbar = () => {
                             ))}
                         </ul>
                       </div>
-=======
->>>>>>> fe4a968f2f06d5d064180156e96a13f4db96b349
                     </li>
                   ))}
                 </ul>
@@ -608,11 +601,7 @@ const Navbar = () => {
           <p className="mb-2 py-3 ps-6">探索全部</p>
           <ul>
             {menu.map((item, index) => (
-<<<<<<< HEAD
-              <li key={`${item.title}+${index}`}>
-=======
               <li key={`${item.title}${index}`}>
->>>>>>> fe4a968f2f06d5d064180156e96a13f4db96b349
                 <a
                   href="#"
                   className="group flex items-center justify-between rounded-xl py-3 pe-3 ps-6 hover:bg-[#0068FF] hover:font-semibold hover:text-white"
