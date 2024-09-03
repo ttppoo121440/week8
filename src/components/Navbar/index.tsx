@@ -336,68 +336,165 @@ const Navbar = () => {
               </span>
             </a>
             <div>
-              <DropdownMenu>
-                <DropdownMenuTrigger className="relative block rounded-xl px-3 py-2 outline-none before:absolute before:right-2 before:top-1 before:size-2 before:rounded-full before:bg-[#0068FF] before:content-[''] focus:bg-[#F9F9F9]">
-                  <TbBell size={24} />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="mt-8 hidden h-full w-full overflow-hidden rounded-xl border-none bg-[#FFFFFF] p-0 shadow-none xl:block">
-                  <DropdownMenuLabel className="border-b border-[#ECECEC]">
-                    <a
-                      className="ml-auto flex w-fit items-center gap-x-2 pe-4 text-sm text-[#0068FF]"
-                      href="#"
-                    >
-                      <AiFillCheckCircle size={18} />
-                      全部標記為已讀
-                    </a>
-                  </DropdownMenuLabel>
-                  <DropdownMenuGroup>
-                    <DropdownMenuItem className="flex gap-x-4 border-b border-[#ECECEC] px-4 py-3">
-                      <div className="flex size-10 flex-shrink-0 items-center justify-center rounded-full bg-[#D4F9FE]">
-                        <AiOutlineNotification color="#2AAFFC" size={24} />
+              <div className="noLogged block">
+                <DropdownMenu>
+                  <DropdownMenuTrigger className="block rounded-xl px-3 py-2 outline-none focus:bg-[#F9F9F9] md:hidden">
+                    <BsList size={24} />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="m-0 block h-screen w-screen bg-[#FFFFFF] p-0">
+                    <div>
+                      <div className="px-6 pt-4">
+                        <DropdownMenuLabel className="mb-2">
+                          探索全部
+                        </DropdownMenuLabel>
+                        {menu.map((item, index) => (
+                          <DropdownMenuGroup key={`${item.title}${index}`}>
+                            <DropdownMenuSub>
+                              <DropdownMenuItem className="rounded-xl border-none p-3 ps-6 focus:bg-[#0068FF] focus:text-white">
+                                {item.title}
+                                <MdKeyboardArrowRight
+                                  className="text-[#909090] group-focus:text-white"
+                                  size={24}
+                                />
+                              </DropdownMenuItem>
+                            </DropdownMenuSub>
+                          </DropdownMenuGroup>
+                        ))}
                       </div>
-                      <div>
-                        <p className="pb-2 text-[#4B4B4B]">
-                          系統通知：6 月 30 日 02:00 網站系統排程更新
-                        </p>
-                        <p className="text-sm text-[#909090]">4 天前</p>
-                      </div>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem className="flex gap-x-4 border-b border-[#ECECEC] px-4 py-3">
-                      <div className="flex size-10 flex-shrink-0 items-center justify-center rounded-full bg-[#FFE0D7]">
-                        <TbBellRinging color="#FF3A55" size={24} />
-                      </div>
-                      <div>
-                        <p className="pb-2 text-[#4B4B4B]">
-                          募資開課：您購買的募資課程已成功開課！將於 3
-                          天後公布課...
-                        </p>
-                        <p className="text-sm text-[#909090]">7 天前</p>
-                      </div>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem className="flex gap-x-4 border-b border-[#ECECEC] px-4 py-3">
-                      <div className="flex size-10 flex-shrink-0 items-center justify-center rounded-full bg-[#FFE0D7]">
-                        <TbBellRinging color="#FF3A55" size={24} />
-                      </div>
-                      <div>
-                        <p className="pb-2 text-[#4B4B4B]">
-                          募資開課：您購買的募資課程已成功開課！將於 3
-                          天後公布課...
-                        </p>
-                        <p className="text-sm text-[#909090]">4 天前</p>
-                      </div>
-                    </DropdownMenuItem>
-                  </DropdownMenuGroup>
-                </DropdownMenuContent>
-              </DropdownMenu>
-              <a href="#">
-                <BsList className="m-2 md:hidden xl:mx-3" size={24} />
-              </a>
+                    </div>
+                    <div className="fixed bottom-[62px] w-screen">
+                      <hr className="border-[#ECECEC]" />
+                      <a
+                        href="#"
+                        className="mx-6 my-3 block whitespace-nowrap rounded-xl bg-[#0068FF] py-4 text-center font-semibold text-white"
+                      >
+                        登入/註冊
+                      </a>
+                    </div>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </div>
+              <div className="Logged hidden">
+                <DropdownMenu>
+                  <DropdownMenuTrigger className="block rounded-xl px-3 py-2 outline-none focus:bg-[#F9F9F9] md:hidden">
+                    <BsList size={24} />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="m-0 block h-screen w-screen bg-[#FFFFFF] p-0">
+                    <Tabs defaultValue="explore" className="w-full">
+                      <TabsList className="grid w-full grid-cols-2">
+                        <TabsTrigger value="explore">探索</TabsTrigger>
+                        <TabsTrigger value="member">我的會員</TabsTrigger>
+                      </TabsList>
+                      <TabsContent value="explore">
+                        <div className="px-6 py-4">
+                          <a className="mb-2 flex items-center rounded-xl border-b border-[#ECECEC] px-6 py-3">
+                            <MdKeyboardArrowLeft size={24} />
+                            <p className="mx-auto">所有程式</p>
+                          </a>
+                          <ul>
+                            {menu_program.map((item, index) => (
+                              <li key={`${item.title}${index}`}>
+                                <a
+                                  href="#"
+                                  className="group flex items-center justify-between rounded-xl py-3 pe-3 ps-6 focus:bg-[#0068FF] focus:font-semibold focus:text-white"
+                                >
+                                  {item.title}
+                                  <MdKeyboardArrowRight
+                                    className="text-[#909090] group-focus:text-white"
+                                    size={24}
+                                  />
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </TabsContent>
+                      <TabsContent value="member">
+                        <div className="px-6 py-4">
+                          <div className="flex items-center gap-x-2 rounded-xl px-6 py-4">
+                            <Image
+                              src="https://github.com/hexschool/2022-web-layout-training/blob/main/week8-learning/avatar-1.png?raw=true"
+                              alt="avatar"
+                              width={44}
+                              height={44}
+                            />
+                            <div>
+                              <p className="font-semibold">Jessica</p>
+                              <p className="mx-auto text-sm leading-snug text-[#909090]">
+                                學習初心者
+                              </p>
+                            </div>
+                          </div>
+                          <ul className="border-y border-[#ECECEC] py-4 text-[#4B4B4B]">
+                            <li>
+                              <a
+                                className="flex items-center gap-x-2 px-6 py-3"
+                                href="#"
+                              >
+                                <CgProfile size={24} color="#909090" />
+                                個人檔案
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                className="flex items-center gap-x-2 px-6 py-3"
+                                href="#"
+                              >
+                                <BsBookmarkFill size={24} color="#909090" />
+                                我的收藏
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                className="flex items-center gap-x-2 px-6 py-3"
+                                href="#"
+                              >
+                                <MdOutlineSettings size={24} color="#909090" />
+                                帳號設定
+                              </a>
+                            </li>
+                          </ul>
+                          <ul className="pt-4 text-[#4B4B4B]">
+                            <li>
+                              <a
+                                className="flex items-center gap-x-2 px-6 py-3"
+                                href="#"
+                              >
+                                <RiFileList2Line size={24} color="#909090" />
+                                訂單紀錄
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                className="flex items-center gap-x-2 px-6 py-3"
+                                href="#"
+                              >
+                                <RiPencilFill size={24} color="#909090" />
+                                作業成果
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                        <a
+                          href="#"
+                          className="fixed bottom-[62px] flex w-full items-center gap-x-2 whitespace-nowrap border-t border-[#ECECEC] px-12 py-6"
+                        >
+                          <TbLogout size={24} color="#909090" />
+                          登出
+                        </a>
+                      </TabsContent>
+                    </Tabs>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </div>
+
               <a
                 href="#"
                 className="hidden whitespace-nowrap rounded-xl bg-[#0068FF] px-4 py-3 text-white"
               >
                 登入 / 註冊
               </a>
+
               <DropdownMenu>
                 <DropdownMenuTrigger className="hidden items-center gap-x-2 font-semibold text-[#4B4B4B] outline-none md:inline-flex">
                   <Image
@@ -521,139 +618,6 @@ const Navbar = () => {
             </div>
           </div>
         </nav>
-      </div>
-      <div className="text-[#333333]">
-        <div className="px-6 py-4">
-          <p className="mb-2 py-3 ps-6">探索全部</p>
-          <ul>
-            {menu.map((item, index) => (
-              <li key={`${item.title}${index}`}>
-                <a
-                  href="#"
-                  className="group flex items-center justify-between rounded-xl py-3 pe-3 ps-6 focus:bg-[#0068FF] focus:font-semibold focus:text-white"
-                >
-                  {item.title}
-                  <MdKeyboardArrowRight
-                    className="text-[#909090] group-focus:text-white"
-                    size={24}
-                  />
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="fixed bottom-0 w-full">
-          <hr className="border-[#ECECEC]" />
-          <a
-            href="#"
-            className="mx-6 my-3 block whitespace-nowrap rounded-xl bg-[#0068FF] py-4 text-center font-semibold text-white"
-          >
-            登入/註冊
-          </a>
-        </div>
-      </div>
-
-      <div className="text-[#333333]">
-        <nav className="border-b border-[#ECECEC]">
-          <ul className="flex text-[#909090]">
-            <li className="relative mx-auto py-4 font-semibold text-[#0068FF] before:absolute before:bottom-0 before:left-1/2 before:h-1 before:w-8 before:-translate-x-1/2 before:transform before:rounded before:bg-[#0068FF] before:content-['']">
-              探索
-            </li>
-            <li className="mx-auto py-4">我的會員</li>
-          </ul>
-        </nav>
-        <div className="px-6 py-4">
-          <a className="mb-2 flex items-center rounded-xl border-b border-[#ECECEC] px-6 py-3">
-            <MdKeyboardArrowLeft size={24} />
-            <p className="mx-auto">所有程式</p>
-          </a>
-          <ul>
-            {menu_program.map((item, index) => (
-              <li key={`${item.title}+${index}`}>
-                <a
-                  href="#"
-                  className="group flex items-center justify-between rounded-xl py-3 pe-3 ps-6 focus:bg-[#0068FF] focus:font-semibold focus:text-white"
-                >
-                  {item.title}
-                  <MdKeyboardArrowRight
-                    className="text-[#909090] group-focus:text-white"
-                    size={24}
-                  />
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
-      <div>
-        <nav className="border-b border-[#ECECEC]">
-          <ul className="flex text-[#909090]">
-            <li className="mx-auto py-4">探索</li>
-            <li className="relative mx-auto py-4 font-semibold text-[#0068FF] before:absolute before:bottom-0 before:left-1/2 before:h-1 before:w-8 before:-translate-x-1/2 before:transform before:rounded before:bg-[#0068FF] before:content-['']">
-              我的會員
-            </li>
-          </ul>
-        </nav>
-        <div className="px-6 py-4">
-          <div className="flex items-center gap-x-2 rounded-xl px-6 py-4">
-            <Image
-              src="https://github.com/hexschool/2022-web-layout-training/blob/main/week8-learning/avatar-1.png?raw=true"
-              alt="avatar"
-              width={44}
-              height={44}
-            />
-            <div>
-              <p className="font-semibold">Jessica</p>
-              <p className="mx-auto text-sm leading-snug text-[#909090]">
-                學習初心者
-              </p>
-            </div>
-          </div>
-          <ul className="border-y border-[#ECECEC] py-4 text-[#4B4B4B]">
-            <li>
-              <a className="flex items-center gap-x-2 px-6 py-3" href="#">
-                <CgProfile size={24} color="#909090" />
-                個人檔案
-              </a>
-            </li>
-            <li>
-              <a className="flex items-center gap-x-2 px-6 py-3" href="#">
-                <BsBookmarkFill size={24} color="#909090" />
-                我的收藏
-              </a>
-            </li>
-            <li>
-              <a className="flex items-center gap-x-2 px-6 py-3" href="#">
-                <MdOutlineSettings size={24} color="#909090" />
-                帳號設定
-              </a>
-            </li>
-          </ul>
-          <ul className="pt-4 text-[#4B4B4B]">
-            <li>
-              <a className="flex items-center gap-x-2 px-6 py-3" href="#">
-                <RiFileList2Line size={24} color="#909090" />
-                訂單紀錄
-              </a>
-            </li>
-            <li>
-              <a className="flex items-center gap-x-2 px-6 py-3" href="#">
-                <RiPencilFill size={24} color="#909090" />
-                作業成果
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div className="fixed bottom-0 w-full border-t border-[#ECECEC] bg-white px-6 py-3">
-          <a
-            href="#"
-            className="flex items-center gap-x-2 whitespace-nowrap px-6 py-3"
-          >
-            <TbLogout size={24} color="#909090" />
-            登出
-          </a>
-        </div>
       </div>
     </div>
   );
