@@ -9,6 +9,7 @@ import {
   DropdownMenuSub,
   DropdownMenuSubTrigger,
   DropdownMenuPortal,
+  DropdownMenuSeparator,
   DropdownMenuSubContent,
 } from "@/components/ui/dropdown-menu";
 
@@ -134,10 +135,11 @@ const Navbar = () => {
                     <DropdownMenuSubTrigger>
                       {item.title}
                       <MdKeyboardArrowRight
-                        className="text-[#909090] group-hover:text-white"
+                        className="text-[#909090] group-focus:text-white"
                         size={24}
                       />
                     </DropdownMenuSubTrigger>
+
                     <DropdownMenuPortal>
                       <DropdownMenuSubContent
                         className={`-top-[${item.spacing}px]`}
@@ -161,7 +163,7 @@ const Navbar = () => {
                                   className={`min-w-[399px] rounded-e-xl px-6 pt-3 -top-[${item.spacing}px]`}
                                   sideOffset={12}
                                 >
-                                  <DropdownMenuLabel className="flex items-center gap-x-2 whitespace-nowrap border-b border-[#ECECEC] ps-0">
+                                  <DropdownMenuLabel className="flex items-center gap-x-2 whitespace-nowrap border-b border-[#ECECEC] pb-4 ps-0 pt-0">
                                     <Image
                                       src="https://github.com/hexschool/2022-web-layout-training/blob/main/week8-learning/icons/ic_fire.png?raw=true"
                                       alt="fire"
@@ -253,258 +255,6 @@ const Navbar = () => {
               ))}
             </DropdownMenuContent>
           </DropdownMenu>
-          {/* <DropdownMenu>
-            <DropdownMenuTrigger className="hidden items-center gap-x-1 px-6 py-5 text-[#4B4B4B] outline-none xl:flex">
-              <span className="whitespace-nowrap pe-1">探索</span>
-              <MdKeyboardArrowDown size={20} color="#909090" />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="mt-6 hidden rounded-s-xl border-none bg-[#F9F9F9] px-3 pb-1 pt-3 shadow-none xl:block">
-              <DropdownMenuLabel className="py-3 ps-6 text-base font-normal">
-                探索全部
-              </DropdownMenuLabel>
-              {menu.map((item, index) => (
-                <DropdownMenuGroup key={`${item.title}${index}`}>
-                  <DropdownMenuSub>
-                    <DropdownMenuSubTrigger className="group flex min-w-52 items-center justify-between rounded-xl py-3 pe-3 ps-6 text-base hover:!bg-[#0068FF] hover:!font-semibold hover:!text-white">
-                      {item.title}
-                      {(index + 1) * -48 - 12}
-                      <MdKeyboardArrowRight
-                        className="text-[#909090] group-hover:text-white"
-                        size={24}
-                      />
-                    </DropdownMenuSubTrigger>
-                    <DropdownMenuPortal>
-                      <DropdownMenuSubContent sideOffset={12}>
-                        <DropdownMenuItem>
-                          <span>Email</span>
-                        </DropdownMenuItem>
-                        <DropdownMenuItem>
-                          <span>Message</span>
-                        </DropdownMenuItem>
-                        <DropdownMenuItem>
-                          <span>More...</span>
-                        </DropdownMenuItem>
-                      </DropdownMenuSubContent>
-                    </DropdownMenuPortal>
-                  </DropdownMenuSub>
-                </DropdownMenuGroup>
-              ))}
-            </DropdownMenuContent>
-          </DropdownMenu> */}
-
-          {/* <div className="group relative hidden xl:block">
-            <a
-              className="flex items-center gap-x-1 px-6 py-5 text-[#4B4B4B]"
-              href="#"
-            >
-              <span className="whitespace-nowrap pe-1">探索</span>
-              <MdKeyboardArrowDown size={20} color="#909090" />
-            </a>
-            <div className="absolute -left-12 hidden h-[624px] overflow-y-hidden pt-6 group-hover:flex">
-              <div className="rounded-s-xl bg-[#F9F9F9] px-3 pb-1 pt-3">
-                <p className="mb-2 py-3 ps-6">探索全部</p>
-                <ul>
-                  {menu.map((item, index) => (
-                    <li className="rounded-xl" key={`${item.title}+${index}`}>
-                      <a
-                        href="#"
-                        className="group/subItem flex min-w-52 items-center justify-between rounded-xl py-3 pe-3 ps-6 hover:bg-[#0068FF] hover:font-semibold hover:text-white"
-                      >
-                        {item.title}
-                        <MdKeyboardArrowRight
-                          className="text-[#909090] group-hover/subItem:text-white"
-                          size={24}
-                        />
-                      </a>
-                      <div className="absolute left-full top-0 mt-6 border-x border-[#ECECEC] bg-white px-3 pt-3">
-                        <p className="mb-2 py-3 ps-6">探索全部</p>
-                        <ul>
-                          {item.title &&
-                            menu_program.map((subItem) => (
-                              <li key={`${subItem.title}+${index}`}>
-                                <a
-                                  href="#"
-                                  className="group/subSubItem flex min-w-52 items-center justify-between rounded-xl py-3 pe-3 ps-6 hover:bg-[#0068FF] hover:font-semibold hover:text-white"
-                                >
-                                  {subItem.title}
-                                  <MdKeyboardArrowRight
-                                    className="text-[#909090] group-hover/subSubItem:text-white"
-                                    size={24}
-                                  />
-                                </a>
-                              </li>
-                            ))}
-                        </ul>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="border-x border-[#ECECEC] bg-white px-3 pb-1 pt-3">
-                <p className="mb-2 py-3 ps-6">探索全部</p>
-                <ul>
-                  {menu_program.map((subItem, subIndex) => (
-                    <li key={subItem.title}>
-                      <a
-                        href="#"
-                        className="group/subSubItem flex min-w-52 items-center justify-between rounded-xl py-3 pe-3 ps-6 hover:bg-[#0068FF] hover:font-semibold hover:text-white"
-                      >
-                        {subItem.title}
-                        <MdKeyboardArrowRight
-                          className="text-[#909090] group-hover/subSubItem:text-white"
-                          size={24}
-                        />
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="min-w-[399px] rounded-e-xl bg-white px-3 pb-1 pt-3">
-                <div className="flex items-center gap-x-2 pb-4">
-                  <Image
-                    src="https://github.com/hexschool/2022-web-layout-training/blob/main/week8-learning/icons/ic_fire.png?raw=true"
-                    alt="fire"
-                    width={24}
-                    height={24}
-                  ></Image>
-                  <p className="whitespace-nowrap font-semibold">
-                    熱門網頁前端課程
-                  </p>
-                </div>
-                <ul>
-                  <li className="flex w-full gap-x-2 border-t border-[#ECECEC] pb-6 pt-4">
-                    <div className="relative after:absolute after:left-1 after:top-1 after:rounded-full after:bg-[#FFE0D7] after:px-2 after:py-1 after:tracking-[0.2rem] after:text-[#FF3A55] after:content-['8折']">
-                      <Image
-                        src="https://github.com/hexschool/2022-web-layout-training/blob/main/week8-learning/course-5.png?raw=true"
-                        alt="course"
-                        width={100}
-                        height={100}
-                        className="relative flex size-[100px] self-start rounded-xl object-cover"
-                      ></Image>
-                    </div>
-                    <div>
-                      <a href="#" className="mb-4 font-semibold">
-                        小白也會！從零開始學習 Python 程式設計
-                      </a>
-                      <div className="flex items-center justify-between whitespace-nowrap border-b border-[#ECECEC] pb-2">
-                        <div className="flex items-center gap-x-2">
-                          <Image
-                            src="https://github.com/hexschool/2022-web-layout-training/blob/main/week8-learning/avatar-2.png?raw=true"
-                            alt="teacherAvatar"
-                            width={32}
-                            height={32}
-                          ></Image>
-                          <p className="text-[#4B4B4B]">Kelly Hsu</p>
-                        </div>
-                        <div className="flex flex-col items-end">
-                          <p className="font-semibold text-[#0068FF]">
-                            NT$ 2,480
-                          </p>
-                          <del className="text-xs text-[#808080]">
-                            NT$ 3,200
-                          </del>
-                        </div>
-                      </div>
-                      <div className="flex justify-between py-2">
-                        <p className="text-[#4B4B4B]">已有 420 位同學加入</p>
-                        <div className="flex items-center gap-x-1">
-                          <MdOutlineStar color="#F6BD2B" size={12} />
-                          <p>4.0</p>
-                          <p className="text-[#808080]">(333)</p>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li className="flex w-full gap-x-2 border-t border-[#ECECEC] pb-6 pt-4">
-                    <div className="relative after:absolute after:left-1 after:top-1 after:rounded-full after:bg-[#FFE0D7] after:px-2 after:py-1 after:tracking-[0.2rem] after:text-[#FF3A55] after:content-['8折']">
-                      <Image
-                        src="https://github.com/hexschool/2022-web-layout-training/blob/main/week8-learning/course-5.png?raw=true"
-                        alt="course"
-                        width={100}
-                        height={100}
-                        className="relative flex size-[100px] self-start rounded-xl object-cover"
-                      ></Image>
-                    </div>
-                    <div>
-                      <a href="#" className="mb-4 font-semibold">
-                        小白也會！從零開始學習 Python 程式設計
-                      </a>
-                      <div className="flex items-center justify-between whitespace-nowrap border-b border-[#ECECEC] pb-2">
-                        <div className="flex items-center gap-x-2">
-                          <Image
-                            src="https://github.com/hexschool/2022-web-layout-training/blob/main/week8-learning/avatar-2.png?raw=true"
-                            alt="teacherAvatar"
-                            width={32}
-                            height={32}
-                          ></Image>
-                          <p className="text-[#4B4B4B]">Kelly Hsu</p>
-                        </div>
-                        <div className="flex flex-col items-end">
-                          <p className="font-semibold text-[#0068FF]">
-                            NT$ 2,480
-                          </p>
-                          <del className="text-xs text-[#808080]">
-                            NT$ 3,200
-                          </del>
-                        </div>
-                      </div>
-                      <div className="flex justify-between py-2">
-                        <p className="text-[#4B4B4B]">已有 420 位同學加入</p>
-                        <div className="flex items-center gap-x-1">
-                          <MdOutlineStar color="#F6BD2B" size={12} />
-                          <p>4.0</p>
-                          <p className="text-[#808080]">(333)</p>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li className="flex w-full gap-x-2 border-t border-[#ECECEC] pb-6 pt-4">
-                    <div className="relative after:absolute after:left-1 after:top-1 after:rounded-full after:bg-[#FFE0D7] after:px-2 after:py-1 after:tracking-[0.2rem] after:text-[#FF3A55] after:content-['8折']">
-                      <Image
-                        src="https://github.com/hexschool/2022-web-layout-training/blob/main/week8-learning/course-5.png?raw=true"
-                        alt="course"
-                        width={100}
-                        height={100}
-                        className="relative flex size-[100px] self-start rounded-xl object-cover"
-                      ></Image>
-                    </div>
-                    <div>
-                      <a href="#" className="mb-4 font-semibold">
-                        小白也會！從零開始學習 Python 程式設計
-                      </a>
-                      <div className="flex items-center justify-between whitespace-nowrap border-b border-[#ECECEC] pb-2">
-                        <div className="flex items-center gap-x-2">
-                          <Image
-                            src="https://github.com/hexschool/2022-web-layout-training/blob/main/week8-learning/avatar-2.png?raw=true"
-                            alt="teacherAvatar"
-                            width={32}
-                            height={32}
-                          ></Image>
-                          <p className="text-[#4B4B4B]">Kelly Hsu</p>
-                        </div>
-                        <div className="flex flex-col items-end">
-                          <p className="font-semibold text-[#0068FF]">
-                            NT$ 2,480
-                          </p>
-                          <del className="text-xs text-[#808080]">
-                            NT$ 3,200
-                          </del>
-                        </div>
-                      </div>
-                      <div className="flex justify-between py-2">
-                        <p className="text-[#4B4B4B]">已有 420 位同學加入</p>
-                        <div className="flex items-center gap-x-1">
-                          <MdOutlineStar color="#F6BD2B" size={12} />
-                          <p>4.0</p>
-                          <p className="text-[#808080]">(333)</p>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div> */}
           <div className="hidden items-center justify-between gap-x-4 rounded-2xl px-2 outline outline-1 outline-[#ECECEC] lg:flex lg:max-w-[425px] lg:flex-1">
             <label
               className="flex w-full items-center gap-x-2"
@@ -527,13 +277,13 @@ const Navbar = () => {
           </div>
           <div className="ms-auto flex items-center md:gap-x-4">
             <DropdownMenu>
-              <DropdownMenuTrigger className="relative block rounded-xl px-3 py-2 outline-none before:absolute before:right-2 before:top-1 before:size-2 before:rounded-full before:bg-[#0068FF] before:content-[''] hover:bg-[#F9F9F9]">
+              <DropdownMenuTrigger className="relative block rounded-xl px-3 py-2 outline-none before:absolute before:right-2 before:top-1 before:size-2 before:rounded-full before:bg-[#0068FF] before:content-[''] focus:bg-[#F9F9F9]">
                 <TbBell size={24} />
               </DropdownMenuTrigger>
               <DropdownMenuContent className="mt-8 hidden h-[297px] w-80 overflow-hidden rounded-xl border-none bg-[#FFFFFF] p-0 shadow-none xl:block">
                 <DropdownMenuLabel className="border-b border-[#ECECEC]">
                   <a
-                    className="ml-auto flex w-fit items-center gap-x-2 pe-4 text-[#0068FF]"
+                    className="ml-auto flex w-fit items-center gap-x-2 pe-4 text-sm text-[#0068FF]"
                     href="#"
                   >
                     <AiFillCheckCircle size={18} />
@@ -559,7 +309,7 @@ const Navbar = () => {
                     <div>
                       <p className="pb-2 text-[#4B4B4B]">
                         募資開課：您購買的募資課程已成功開課！將於 3
-                        天後公布課綱！
+                        天後公布課...
                       </p>
                       <p className="text-sm text-[#909090]">7 天前</p>
                     </div>
@@ -571,7 +321,7 @@ const Navbar = () => {
                     <div>
                       <p className="pb-2 text-[#4B4B4B]">
                         募資開課：您購買的募資課程已成功開課！將於 3
-                        天後公布課綱！
+                        天後公布課...
                       </p>
                       <p className="text-sm text-[#909090]">4 天前</p>
                     </div>
@@ -586,29 +336,14 @@ const Navbar = () => {
               </span>
             </a>
             <div>
-              <a href="#">
-                <BsList className="m-2 md:hidden xl:mx-3" size={24} />
-              </a>
-              <a
-                href="#"
-                className="hidden whitespace-nowrap rounded-xl bg-[#0068FF] px-4 py-3 text-white"
-              >
-                登入 / 註冊
-              </a>
               <DropdownMenu>
-                <DropdownMenuTrigger className="hidden items-center gap-x-2 font-semibold text-[#4B4B4B] outline-none md:inline-flex">
-                  <Image
-                    src="https://github.com/hexschool/2022-web-layout-training/blob/main/week8-learning/avatar-1.png?raw=true"
-                    alt="avatar"
-                    width={44}
-                    height={44}
-                  />
-                  Jessica
+                <DropdownMenuTrigger className="relative block rounded-xl px-3 py-2 outline-none before:absolute before:right-2 before:top-1 before:size-2 before:rounded-full before:bg-[#0068FF] before:content-[''] focus:bg-[#F9F9F9]">
+                  <TbBell size={24} />
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="absolute -right-24 mt-8 hidden h-[297px] w-80 overflow-hidden rounded-xl border-none bg-[#FFFFFF] p-0 shadow-none md:block">
+                <DropdownMenuContent className="mt-8 hidden h-full w-full overflow-hidden rounded-xl border-none bg-[#FFFFFF] p-0 shadow-none xl:block">
                   <DropdownMenuLabel className="border-b border-[#ECECEC]">
                     <a
-                      className="ml-auto flex w-fit items-center gap-x-2 pe-4 text-[#0068FF]"
+                      className="ml-auto flex w-fit items-center gap-x-2 pe-4 text-sm text-[#0068FF]"
                       href="#"
                     >
                       <AiFillCheckCircle size={18} />
@@ -634,7 +369,7 @@ const Navbar = () => {
                       <div>
                         <p className="pb-2 text-[#4B4B4B]">
                           募資開課：您購買的募資課程已成功開課！將於 3
-                          天後公布課綱！
+                          天後公布課...
                         </p>
                         <p className="text-sm text-[#909090]">7 天前</p>
                       </div>
@@ -646,7 +381,7 @@ const Navbar = () => {
                       <div>
                         <p className="pb-2 text-[#4B4B4B]">
                           募資開課：您購買的募資課程已成功開課！將於 3
-                          天後公布課綱！
+                          天後公布課...
                         </p>
                         <p className="text-sm text-[#909090]">4 天前</p>
                       </div>
@@ -654,11 +389,139 @@ const Navbar = () => {
                   </DropdownMenuGroup>
                 </DropdownMenuContent>
               </DropdownMenu>
+              <a href="#">
+                <BsList className="m-2 md:hidden xl:mx-3" size={24} />
+              </a>
+              <a
+                href="#"
+                className="hidden whitespace-nowrap rounded-xl bg-[#0068FF] px-4 py-3 text-white"
+              >
+                登入 / 註冊
+              </a>
+              <DropdownMenu>
+                <DropdownMenuTrigger className="hidden items-center gap-x-2 font-semibold text-[#4B4B4B] outline-none md:inline-flex">
+                  <Image
+                    src="https://github.com/hexschool/2022-web-layout-training/blob/main/week8-learning/avatar-1.png?raw=true"
+                    alt="avatar"
+                    width={44}
+                    height={44}
+                  />
+                  Jessica
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="absolute -right-24 mt-8 hidden w-[237px] space-y-4 rounded-xl border-none bg-[#FFFFFF] py-6 shadow-none md:block">
+                  <DropdownMenuLabel className="p-0" asChild>
+                    <a className="flex items-center gap-x-2" href="#">
+                      <Image
+                        src="https://github.com/hexschool/2022-web-layout-training/blob/main/week8-learning/avatar-1.png?raw=true"
+                        alt="avatar"
+                        width={44}
+                        height={44}
+                      />
+                      <div>
+                        <p>Jessica</p>
+                        <p className="text-sm text-[#909090]">學習初心者</p>
+                      </div>
+                    </a>
+                  </DropdownMenuLabel>
+                  <DropdownMenuSeparator className="bg-[#ECECEC]" />
+                  <DropdownMenuGroup asChild>
+                    <ul>
+                      <DropdownMenuItem className="border-none p-0" asChild>
+                        <li className="group text-[#4B4B4B] focus:bg-[#0068FF] focus:text-white">
+                          <a
+                            href="#"
+                            className="flex w-full items-center gap-x-2 rounded-xl py-3 ps-6"
+                          >
+                            <CgProfile
+                              className="text-[#909090] group-focus:text-white"
+                              size={24}
+                            />
+                            個人檔案
+                          </a>
+                        </li>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem className="border-none p-0" asChild>
+                        <li className="group text-[#4B4B4B] focus:bg-[#0068FF] focus:text-white">
+                          <a
+                            href="#"
+                            className="flex w-full items-center gap-x-2 rounded-xl py-3 ps-6"
+                          >
+                            <BsBookmarkFill
+                              className="text-[#909090] group-focus:text-white"
+                              size={24}
+                            />
+                            我的收藏
+                          </a>
+                        </li>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem className="border-none p-0" asChild>
+                        <li className="group text-[#4B4B4B] focus:bg-[#0068FF] focus:text-white">
+                          <a
+                            href="#"
+                            className="flex w-full items-center gap-x-2 rounded-xl py-3 ps-6"
+                          >
+                            <MdOutlineSettings
+                              className="text-[#909090] group-focus:text-white"
+                              size={24}
+                            />
+                            帳號設定
+                          </a>
+                        </li>
+                      </DropdownMenuItem>
+                    </ul>
+                  </DropdownMenuGroup>
+                  <DropdownMenuSeparator className="bg-[#ECECEC]" />
+                  <DropdownMenuGroup asChild>
+                    <ul>
+                      <DropdownMenuItem className="border-none p-0" asChild>
+                        <li className="group text-[#4B4B4B] focus:bg-[#0068FF] focus:text-white">
+                          <a
+                            href="#"
+                            className="flex w-full items-center gap-x-2 rounded-xl py-3 ps-6"
+                          >
+                            <RiFileList2Line
+                              className="text-[#909090] group-focus:text-white"
+                              size={24}
+                            />
+                            訂單紀錄
+                          </a>
+                        </li>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem className="border-none p-0" asChild>
+                        <li className="group text-[#4B4B4B] focus:bg-[#0068FF] focus:text-white">
+                          <a
+                            href="#"
+                            className="flex w-full items-center gap-x-2 rounded-xl py-3 ps-6"
+                          >
+                            <RiPencilFill
+                              className="text-[#909090] group-focus:text-white"
+                              size={24}
+                            />
+                            作業成果
+                          </a>
+                        </li>
+                      </DropdownMenuItem>
+                    </ul>
+                  </DropdownMenuGroup>
+                  <DropdownMenuSeparator className="bg-[#ECECEC]" />
+                  <DropdownMenuItem className="border-none p-0" asChild>
+                    <a
+                      href="#"
+                      className="group flex w-full items-center gap-x-2 rounded-xl py-3 ps-6 text-[#4B4B4B] focus:bg-[#0068FF] focus:text-white"
+                    >
+                      <TbLogout
+                        className="text-[#909090] group-focus:text-white"
+                        size={24}
+                      />
+                      登出
+                    </a>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
           </div>
         </nav>
       </div>
-
       <div className="text-[#333333]">
         <div className="px-6 py-4">
           <p className="mb-2 py-3 ps-6">探索全部</p>
@@ -667,11 +530,11 @@ const Navbar = () => {
               <li key={`${item.title}${index}`}>
                 <a
                   href="#"
-                  className="group flex items-center justify-between rounded-xl py-3 pe-3 ps-6 hover:bg-[#0068FF] hover:font-semibold hover:text-white"
+                  className="group flex items-center justify-between rounded-xl py-3 pe-3 ps-6 focus:bg-[#0068FF] focus:font-semibold focus:text-white"
                 >
                   {item.title}
                   <MdKeyboardArrowRight
-                    className="text-[#909090] group-hover:text-white"
+                    className="text-[#909090] group-focus:text-white"
                     size={24}
                   />
                 </a>
@@ -709,11 +572,11 @@ const Navbar = () => {
               <li key={`${item.title}+${index}`}>
                 <a
                   href="#"
-                  className="group flex items-center justify-between rounded-xl py-3 pe-3 ps-6 hover:bg-[#0068FF] hover:font-semibold hover:text-white"
+                  className="group flex items-center justify-between rounded-xl py-3 pe-3 ps-6 focus:bg-[#0068FF] focus:font-semibold focus:text-white"
                 >
                   {item.title}
                   <MdKeyboardArrowRight
-                    className="text-[#909090] group-hover:text-white"
+                    className="text-[#909090] group-focus:text-white"
                     size={24}
                   />
                 </a>
