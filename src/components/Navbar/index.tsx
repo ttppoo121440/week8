@@ -280,7 +280,7 @@ const Navbar = () => {
               <DropdownMenuTrigger className="relative block rounded-xl px-3 py-2 outline-none before:absolute before:right-2 before:top-1 before:size-2 before:rounded-full before:bg-[#0068FF] before:content-[''] focus:bg-[#F9F9F9]">
                 <TbBell size={24} />
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="mt-8 hidden h-[297px] w-80 overflow-hidden rounded-xl border-none bg-[#FFFFFF] p-0 shadow-none xl:block">
+              <DropdownMenuContent className="mt-8 block h-[297px] w-80 overflow-hidden rounded-xl border-none bg-[#FFFFFF] p-0 shadow-none">
                 <DropdownMenuLabel className="border-b border-[#ECECEC]">
                   <a
                     className="ml-auto flex w-fit items-center gap-x-2 pe-4 text-sm text-[#0068FF]"
