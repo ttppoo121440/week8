@@ -524,7 +524,7 @@ const Navbar = () => {
                   <DropdownMenuGroup asChild>
                     <ul>
                       <DropdownMenuItem className="border-none p-0" asChild>
-                        <li className="group text-[#4B4B4B] focus:bg-[#0068FF] focus:text-white">
+                        <li className="group text-[#4B4B4B] focus:!bg-[#0068FF] focus:text-white">
                           <a
                             href="#"
                             className="flex w-full items-center gap-x-2 rounded-xl py-3 ps-6"
@@ -538,7 +538,7 @@ const Navbar = () => {
                         </li>
                       </DropdownMenuItem>
                       <DropdownMenuItem className="border-none p-0" asChild>
-                        <li className="group text-[#4B4B4B] focus:bg-[#0068FF] focus:text-white">
+                        <li className="group text-[#4B4B4B] focus:!bg-[#0068FF] focus:text-white">
                           <a
                             href="#"
                             className="flex w-full items-center gap-x-2 rounded-xl py-3 ps-6"
@@ -552,7 +552,7 @@ const Navbar = () => {
                         </li>
                       </DropdownMenuItem>
                       <DropdownMenuItem className="border-none p-0" asChild>
-                        <li className="group text-[#4B4B4B] focus:bg-[#0068FF] focus:text-white">
+                        <li className="group text-[#4B4B4B] focus:!bg-[#0068FF] focus:text-white">
                           <a
                             href="#"
                             className="flex w-full items-center gap-x-2 rounded-xl py-3 ps-6"
@@ -571,7 +571,7 @@ const Navbar = () => {
                   <DropdownMenuGroup asChild>
                     <ul>
                       <DropdownMenuItem className="border-none p-0" asChild>
-                        <li className="group text-[#4B4B4B] focus:bg-[#0068FF] focus:text-white">
+                        <li className="group text-[#4B4B4B] focus:!bg-[#0068FF] focus:text-white">
                           <a
                             href="#"
                             className="flex w-full items-center gap-x-2 rounded-xl py-3 ps-6"
@@ -585,7 +585,7 @@ const Navbar = () => {
                         </li>
                       </DropdownMenuItem>
                       <DropdownMenuItem className="border-none p-0" asChild>
-                        <li className="group text-[#4B4B4B] focus:bg-[#0068FF] focus:text-white">
+                        <li className="group text-[#4B4B4B] focus:!bg-[#0068FF] focus:text-white">
                           <a
                             href="#"
                             className="flex w-full items-center gap-x-2 rounded-xl py-3 ps-6"
@@ -604,7 +604,7 @@ const Navbar = () => {
                   <DropdownMenuItem className="border-none p-0" asChild>
                     <a
                       href="#"
-                      className="group flex w-full items-center gap-x-2 rounded-xl py-3 ps-6 text-[#4B4B4B] focus:bg-[#0068FF] focus:text-white"
+                      className="group flex w-full items-center gap-x-2 rounded-xl py-3 ps-6 text-[#4B4B4B] focus:!bg-[#0068FF] focus:text-white"
                     >
                       <TbLogout
                         className="text-[#909090] group-focus:text-white"
