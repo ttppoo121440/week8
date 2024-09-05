@@ -108,7 +108,7 @@ const menu_course = [
 const Navbar = () => {
   return (
     <div>
-      <div className="md:container md:pb-4 md:pt-10">
+      <div className="md:container md:px-3 md:pb-4 md:pt-10 xl:px-0">
         <nav className="flex items-center rounded-full py-3 pe-[18px] ps-3 md:px-10 md:py-4 md:shadow-[0_2px_40px_0px_rgba(0,102,255,0.1)]">
           <a className="py-4 pe-6" href="#">
             <h1>
