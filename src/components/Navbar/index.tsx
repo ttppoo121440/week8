@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -110,7 +111,7 @@ const Navbar = () => {
     <div>
       <div className="md:container md:px-3 md:pb-4 md:pt-10 xl:px-0">
         <nav className="flex items-center rounded-full py-3 pe-[18px] ps-3 md:px-10 md:py-4 md:shadow-[0_2px_40px_0px_rgba(0,102,255,0.1)]">
-          <a className="py-4 pe-6" href="#">
+          <Link href="#" className="py-4 pe-6">
             <h1>
               <Image
                 src="https://github.com/hexschool/2022-web-layout-training/blob/main/week8-learning/logo.png?raw=true"
@@ -121,7 +122,7 @@ const Navbar = () => {
                 className="min-h-[20px] min-w-[125px] md:h-[32px] md:w-[200px]"
               />
             </h1>
-          </a>
+          </Link>
           <DropdownMenu>
             <DropdownMenuTrigger className="hidden items-center gap-x-1 px-6 py-5 text-[#4B4B4B] outline-none xl:flex">
               <span className="whitespace-nowrap pe-1">探索</span>
@@ -186,12 +187,12 @@ const Navbar = () => {
                                             className="relative flex size-[100px] self-start rounded-xl object-cover"
                                           ></Image>
                                           <div>
-                                            <a
+                                            <Link
                                               className="mb-4 block font-semibold"
                                               href="#"
                                             >
                                               {courseItem.title}
-                                            </a>
+                                            </Link>
                                             <div className="flex items-center justify-between whitespace-nowrap border-b border-[#ECECEC] pb-2">
                                               <div className="flex items-center gap-x-2">
                                                 <Image
@@ -282,13 +283,13 @@ const Navbar = () => {
               </DropdownMenuTrigger>
               <DropdownMenuContent className="mt-8 block h-[297px] w-80 overflow-hidden rounded-xl border-none bg-[#FFFFFF] p-0 shadow-none">
                 <DropdownMenuLabel className="border-b border-[#ECECEC]">
-                  <a
+                  <Link
                     className="ml-auto flex w-fit items-center gap-x-2 pe-4 text-sm text-[#0068FF]"
                     href="#"
                   >
                     <AiFillCheckCircle size={18} />
                     全部標記為已讀
-                  </a>
+                  </Link>
                 </DropdownMenuLabel>
                 <DropdownMenuGroup>
                   <DropdownMenuItem className="flex gap-x-4 border-b border-[#ECECEC] px-4 py-3">
@@ -329,12 +330,12 @@ const Navbar = () => {
                 </DropdownMenuGroup>
               </DropdownMenuContent>
             </DropdownMenu>
-            <a className="relative block px-3 py-2" href="#">
+            <Link className="relative block px-3 py-2" href="#">
               <MdOutlineShoppingCart size={24} />
               <span className="absolute right-1.5 top-0.5 flex size-5 items-center justify-center rounded-full border-2 border-white bg-[#0068FF] text-xs text-white">
                 2
               </span>
-            </a>
+            </Link>
             <div>
               <div className="noLogged block">
                 <DropdownMenu>
@@ -364,12 +365,12 @@ const Navbar = () => {
                     </div>
                     <div className="fixed bottom-[62px] w-screen">
                       <hr className="border-[#ECECEC]" />
-                      <a
+                      <Link
                         href="#"
                         className="mx-6 my-3 block whitespace-nowrap rounded-xl bg-[#0068FF] py-4 text-center font-semibold text-white"
                       >
                         登入/註冊
-                      </a>
+                      </Link>
                     </div>
                   </DropdownMenuContent>
                 </DropdownMenu>
@@ -387,14 +388,14 @@ const Navbar = () => {
                       </TabsList>
                       <TabsContent value="explore">
                         <div className="px-6 py-4">
-                          <a className="mb-2 flex items-center rounded-xl border-b border-[#ECECEC] px-6 py-3">
+                          <Link className="mb-2 flex items-center rounded-xl border-b border-[#ECECEC] px-6 py-3">
                             <MdKeyboardArrowLeft size={24} />
                             <p className="mx-auto">所有程式</p>
-                          </a>
+                          </Link>
                           <ul>
                             {menu_program.map((item, index) => (
                               <li key={`${item.title}${index}`}>
-                                <a
+                                <Link
                                   href="#"
                                   className="group flex items-center justify-between rounded-xl py-3 pe-3 ps-6 focus:bg-[#0068FF] focus:font-semibold focus:text-white"
                                 >
@@ -403,7 +404,7 @@ const Navbar = () => {
                                     className="text-[#909090] group-focus:text-white"
                                     size={24}
                                   />
-                                </a>
+                                </Link>
                               </li>
                             ))}
                           </ul>
@@ -427,73 +428,73 @@ const Navbar = () => {
                           </div>
                           <ul className="border-y border-[#ECECEC] py-4 text-[#4B4B4B]">
                             <li>
-                              <a
+                              <Link
                                 className="flex items-center gap-x-2 px-6 py-3"
                                 href="#"
                               >
                                 <CgProfile size={24} color="#909090" />
                                 個人檔案
-                              </a>
+                              </Link>
                             </li>
                             <li>
-                              <a
+                              <Link
                                 className="flex items-center gap-x-2 px-6 py-3"
                                 href="#"
                               >
                                 <BsBookmarkFill size={24} color="#909090" />
                                 我的收藏
-                              </a>
+                              </Link>
                             </li>
                             <li>
-                              <a
+                              <Link
                                 className="flex items-center gap-x-2 px-6 py-3"
                                 href="#"
                               >
                                 <MdOutlineSettings size={24} color="#909090" />
                                 帳號設定
-                              </a>
+                              </Link>
                             </li>
                           </ul>
                           <ul className="pt-4 text-[#4B4B4B]">
                             <li>
-                              <a
+                              <Link
                                 className="flex items-center gap-x-2 px-6 py-3"
                                 href="#"
                               >
                                 <RiFileList2Line size={24} color="#909090" />
                                 訂單紀錄
-                              </a>
+                              </Link>
                             </li>
                             <li>
-                              <a
+                              <Link
                                 className="flex items-center gap-x-2 px-6 py-3"
                                 href="#"
                               >
                                 <RiPencilFill size={24} color="#909090" />
                                 作業成果
-                              </a>
+                              </Link>
                             </li>
                           </ul>
                         </div>
-                        <a
+                        <Link
                           href="#"
                           className="fixed bottom-[62px] flex w-full items-center gap-x-2 whitespace-nowrap border-t border-[#ECECEC] px-12 py-6"
                         >
                           <TbLogout size={24} color="#909090" />
                           登出
-                        </a>
+                        </Link>
                       </TabsContent>
                     </Tabs>
                   </DropdownMenuContent>
                 </DropdownMenu>
               </div>
 
-              <a
-                href="#"
+              <Link
+                href="../../app/signinup"
                 className="hidden whitespace-nowrap rounded-xl bg-[#0068FF] px-4 py-3 text-white"
               >
                 登入 / 註冊
-              </a>
+              </Link>
 
               <DropdownMenu>
                 <DropdownMenuTrigger className="hidden items-center gap-x-2 font-semibold text-[#4B4B4B] outline-none md:inline-flex">
@@ -507,7 +508,7 @@ const Navbar = () => {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="absolute -right-24 mt-8 hidden w-[237px] space-y-4 rounded-xl border-none bg-[#FFFFFF] py-6 shadow-none md:block">
                   <DropdownMenuLabel className="p-0" asChild>
-                    <a className="flex items-center gap-x-2" href="#">
+                    <Link className="flex items-center gap-x-2" href="#">
                       <Image
                         src="https://github.com/hexschool/2022-web-layout-training/blob/main/week8-learning/avatar-1.png?raw=true"
                         alt="avatar"
@@ -518,14 +519,14 @@ const Navbar = () => {
                         <p>Jessica</p>
                         <p className="text-sm text-[#909090]">學習初心者</p>
                       </div>
-                    </a>
+                    </Link>
                   </DropdownMenuLabel>
                   <DropdownMenuSeparator className="bg-[#ECECEC]" />
                   <DropdownMenuGroup asChild>
                     <ul>
                       <DropdownMenuItem className="border-none p-0" asChild>
                         <li className="group text-[#4B4B4B] focus:!bg-[#0068FF] focus:text-white">
-                          <a
+                          <Link
                             href="#"
                             className="flex w-full items-center gap-x-2 rounded-xl py-3 ps-6"
                           >
@@ -534,12 +535,12 @@ const Navbar = () => {
                               size={24}
                             />
                             個人檔案
-                          </a>
+                          </Link>
                         </li>
                       </DropdownMenuItem>
                       <DropdownMenuItem className="border-none p-0" asChild>
                         <li className="group text-[#4B4B4B] focus:!bg-[#0068FF] focus:text-white">
-                          <a
+                          <Link
                             href="#"
                             className="flex w-full items-center gap-x-2 rounded-xl py-3 ps-6"
                           >
@@ -548,12 +549,12 @@ const Navbar = () => {
                               size={24}
                             />
                             我的收藏
-                          </a>
+                          </Link>
                         </li>
                       </DropdownMenuItem>
                       <DropdownMenuItem className="border-none p-0" asChild>
                         <li className="group text-[#4B4B4B] focus:!bg-[#0068FF] focus:text-white">
-                          <a
+                          <Link
                             href="#"
                             className="flex w-full items-center gap-x-2 rounded-xl py-3 ps-6"
                           >
@@ -562,7 +563,7 @@ const Navbar = () => {
                               size={24}
                             />
                             帳號設定
-                          </a>
+                          </Link>
                         </li>
                       </DropdownMenuItem>
                     </ul>
@@ -572,7 +573,7 @@ const Navbar = () => {
                     <ul>
                       <DropdownMenuItem className="border-none p-0" asChild>
                         <li className="group text-[#4B4B4B] focus:!bg-[#0068FF] focus:text-white">
-                          <a
+                          <Link
                             href="#"
                             className="flex w-full items-center gap-x-2 rounded-xl py-3 ps-6"
                           >
@@ -581,12 +582,12 @@ const Navbar = () => {
                               size={24}
                             />
                             訂單紀錄
-                          </a>
+                          </Link>
                         </li>
                       </DropdownMenuItem>
                       <DropdownMenuItem className="border-none p-0" asChild>
                         <li className="group text-[#4B4B4B] focus:!bg-[#0068FF] focus:text-white">
-                          <a
+                          <Link
                             href="#"
                             className="flex w-full items-center gap-x-2 rounded-xl py-3 ps-6"
                           >
@@ -595,14 +596,14 @@ const Navbar = () => {
                               size={24}
                             />
                             作業成果
-                          </a>
+                          </Link>
                         </li>
                       </DropdownMenuItem>
                     </ul>
                   </DropdownMenuGroup>
                   <DropdownMenuSeparator className="bg-[#ECECEC]" />
                   <DropdownMenuItem className="border-none p-0" asChild>
-                    <a
+                    <Link
                       href="#"
                       className="group flex w-full items-center gap-x-2 rounded-xl py-3 ps-6 text-[#4B4B4B] focus:!bg-[#0068FF] focus:text-white"
                     >
@@ -611,7 +612,7 @@ const Navbar = () => {
                         size={24}
                       />
                       登出
-                    </a>
+                    </Link>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
