@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 import { IoStarSharp } from "react-icons/io5";
 
-const CourseList = ({ data }: { data: Course[] }) => {
+const CourseList = ({ data }: { data: Courses[] }) => {
   return (
     <ul className="mt-10 hidden md:grid md:grid-cols-2 md:gap-6 xl:grid-cols-4">
       {data.map((course) => (

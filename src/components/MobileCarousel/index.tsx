@@ -8,7 +8,7 @@ import Image from "next/image";
 import React from "react";
 import { IoStarSharp } from "react-icons/io5";
 
-const MobileCarousel = ({ data }: { data: Course[] }) => {
+const MobileCarousel = ({ data }: { data: Courses[] }) => {
   return (
     <div className="block pt-10 md:hidden">
       <Carousel
