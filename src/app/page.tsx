@@ -74,7 +74,7 @@ const courses = [
 export default function Home() {
   return (
     <main>
-      <section className="pb-12">
+      <section className="pb-12 xl:pb-[100px]">
         <div className="h-[200px] bg-[url('https://github.com/hexschool/2022-web-layout-training/blob/main/week8-learning/hero-sm-5.png?raw=true')] bg-cover bg-center md:h-[400px] md:bg-[url('https://github.com/hexschool/2022-web-layout-training/blob/main/week8-learning/hero-5.png?raw=true')]"></div>
         <div className="container relative flex flex-col px-3 text-[#4B4B4B] 2xl:px-0">
           <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white p-2.5 md:p-5 xl:left-3 xl:top-10 xl:translate-x-0 2xl:left-0">
