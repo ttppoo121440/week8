@@ -3,9 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import CourseStatus from "./mycourses/CourseStatus";
-import MobileCarousel from "./mycourses/MobileCarousel";
-import CourseList from "./mycourses/CourseList";
+import MobileCarousel from "../components/MobileCarousel";
+import CourseList from "../components/CourseList";
 
 import { FaLine, FaYoutube, FaFacebookF } from "react-icons/fa";
 

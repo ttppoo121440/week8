@@ -4,8 +4,8 @@ import Image from "next/image";
 import MenuItem from "./MenuItem";
 import TextList from "./TextList";
 import CourseStatus from "./CourseStatus";
-import MobileCarousel from "./MobileCarousel";
-import CourseList from "./CourseList";
+import MobileCarousel from "../../components/MobileCarousel";
+import CourseList from "../../components/CourseList";
 
 const courses = [
   {
