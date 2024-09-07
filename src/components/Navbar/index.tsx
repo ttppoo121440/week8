@@ -337,7 +337,7 @@ const Navbar = () => {
               </span>
             </Link>
             <div>
-              <div className="noLogged block">
+              <div className="noLogged hidden">
                 <DropdownMenu>
                   <DropdownMenuTrigger className="block rounded-xl px-3 py-2 outline-none focus:bg-[#F9F9F9] md:hidden">
                     <BsList size={24} />
@@ -363,10 +363,10 @@ const Navbar = () => {
                         ))}
                       </div>
                     </div>
-                    <div className="fixed bottom-[62px] w-screen">
+                    <div className="fixed bottom-[62px] w-screen bg-white">
                       <hr className="border-[#ECECEC]" />
                       <Link
-                        href="#"
+                        href="./logIn"
                         className="mx-6 my-3 block whitespace-nowrap rounded-xl bg-[#0068FF] py-4 text-center font-semibold text-white"
                       >
                         登入/註冊
@@ -375,7 +375,7 @@ const Navbar = () => {
                   </DropdownMenuContent>
                 </DropdownMenu>
               </div>
-              <div className="Logged hidden">
+              <div className="Logged block">
                 <DropdownMenu>
                   <DropdownMenuTrigger className="block rounded-xl px-3 py-2 outline-none focus:bg-[#F9F9F9] md:hidden">
                     <BsList size={24} />
@@ -388,7 +388,10 @@ const Navbar = () => {
                       </TabsList>
                       <TabsContent value="explore">
                         <div className="px-6 py-4">
-                          <Link className="mb-2 flex items-center rounded-xl border-b border-[#ECECEC] px-6 py-3">
+                          <Link
+                            className="mb-2 flex items-center rounded-xl border-b border-[#ECECEC] px-6 py-3"
+                            href="#"
+                          >
                             <MdKeyboardArrowLeft size={24} />
                             <p className="mx-auto">所有程式</p>
                           </Link>
@@ -478,7 +481,7 @@ const Navbar = () => {
                         </div>
                         <Link
                           href="#"
-                          className="fixed bottom-[62px] flex w-full items-center gap-x-2 whitespace-nowrap border-t border-[#ECECEC] px-12 py-6"
+                          className="fixed bottom-[62px] flex w-full items-center gap-x-2 whitespace-nowrap border-t border-[#ECECEC] bg-white px-12 py-6"
                         >
                           <TbLogout size={24} color="#909090" />
                           登出
@@ -490,7 +493,7 @@ const Navbar = () => {
               </div>
 
               <Link
-                href="../../app/signinup"
+                href="#"
                 className="hidden whitespace-nowrap rounded-xl bg-[#0068FF] px-4 py-3 text-white"
               >
                 登入 / 註冊
@@ -525,10 +528,10 @@ const Navbar = () => {
                   <DropdownMenuGroup asChild>
                     <ul>
                       <DropdownMenuItem className="border-none p-0" asChild>
-                        <li className="group text-[#4B4B4B] focus:!bg-[#0068FF] focus:text-white">
+                        <li className="group rounded-xl text-[#4B4B4B] focus:!bg-[#0068FF] focus:text-white">
                           <Link
                             href="#"
-                            className="flex w-full items-center gap-x-2 rounded-xl py-3 ps-6"
+                            className="flex w-full items-center gap-x-2 py-3 ps-6"
                           >
                             <CgProfile
                               className="text-[#909090] group-focus:text-white"
@@ -539,10 +542,10 @@ const Navbar = () => {
                         </li>
                       </DropdownMenuItem>
                       <DropdownMenuItem className="border-none p-0" asChild>
-                        <li className="group text-[#4B4B4B] focus:!bg-[#0068FF] focus:text-white">
+                        <li className="group rounded-xl text-[#4B4B4B] focus:!bg-[#0068FF] focus:text-white">
                           <Link
                             href="#"
-                            className="flex w-full items-center gap-x-2 rounded-xl py-3 ps-6"
+                            className="flex w-full items-center gap-x-2 py-3 ps-6"
                           >
                             <BsBookmarkFill
                               className="text-[#909090] group-focus:text-white"
@@ -553,10 +556,10 @@ const Navbar = () => {
                         </li>
                       </DropdownMenuItem>
                       <DropdownMenuItem className="border-none p-0" asChild>
-                        <li className="group text-[#4B4B4B] focus:!bg-[#0068FF] focus:text-white">
+                        <li className="group rounded-xl text-[#4B4B4B] focus:!bg-[#0068FF] focus:text-white">
                           <Link
                             href="#"
-                            className="flex w-full items-center gap-x-2 rounded-xl py-3 ps-6"
+                            className="flex w-full items-center gap-x-2 py-3 ps-6"
                           >
                             <MdOutlineSettings
                               className="text-[#909090] group-focus:text-white"
@@ -572,10 +575,10 @@ const Navbar = () => {
                   <DropdownMenuGroup asChild>
                     <ul>
                       <DropdownMenuItem className="border-none p-0" asChild>
-                        <li className="group text-[#4B4B4B] focus:!bg-[#0068FF] focus:text-white">
+                        <li className="group rounded-xl text-[#4B4B4B] focus:!bg-[#0068FF] focus:text-white">
                           <Link
                             href="#"
-                            className="flex w-full items-center gap-x-2 rounded-xl py-3 ps-6"
+                            className="flex w-full items-center gap-x-2 py-3 ps-6"
                           >
                             <RiFileList2Line
                               className="text-[#909090] group-focus:text-white"
@@ -586,10 +589,10 @@ const Navbar = () => {
                         </li>
                       </DropdownMenuItem>
                       <DropdownMenuItem className="border-none p-0" asChild>
-                        <li className="group text-[#4B4B4B] focus:!bg-[#0068FF] focus:text-white">
+                        <li className="group rounded-xl text-[#4B4B4B] focus:!bg-[#0068FF] focus:text-white">
                           <Link
                             href="#"
-                            className="flex w-full items-center gap-x-2 rounded-xl py-3 ps-6"
+                            className="flex w-full items-center gap-x-2 py-3 ps-6"
                           >
                             <RiPencilFill
                               className="text-[#909090] group-focus:text-white"
