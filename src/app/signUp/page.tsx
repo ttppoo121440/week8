@@ -150,14 +150,14 @@ const SignUp = () => {
             >
               立即登入
             </button>
-            <div className="flex justify-between">
+            <div className="flex justify-between text-sm xl:text-base">
               <p>
                 建立帳號即表示您同意我們的
-                <Link className="mx-1 underline" href="#">
+                <Link className="underline xl:mx-1" href="#">
                   服務條款
                 </Link>
                 及
-                <Link className="ms-1 underline" href="#">
+                <Link className="underline xl:ms-1" href="#">
                   隱私權政策
                 </Link>
               </p>
